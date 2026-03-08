@@ -1,0 +1,17 @@
+model:
+  d_model: 128
+  nhead: 4
+  num_layers: 4
+  dropout: 0.1
+
+data:
+  max_digits: 10
+  operators: ["+", "-"]
+  batch_size: 256
+  
+training:
+  lr: 0.001
+  max_steps: 50000
+  log_interval: 100
+  save_interval: 1000
+  device: "auto" # will use mps/cuda if available
