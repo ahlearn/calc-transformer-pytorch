@@ -1,6 +1,8 @@
-# Calculator Transformer
+# Calculator Transformer (pytorch)
 
 A minimal character-level Transformer using PyTorch to perform addition and subtraction.
+
+https://github.com/ahlearn/calc-transformer-pytorch
 
 ## Setup
 ```bash
