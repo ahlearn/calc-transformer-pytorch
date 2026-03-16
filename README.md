@@ -1,12 +1,12 @@
 # Calculator Transformer (PyTorch)
 
-A minimal character-level Transformer using PyTorch to perform addition and subtraction with **100.00% accuracy** on up to 3-digit numbers. The model achieves perfect accuracy while containing less than 100,000 parameters (specifically `82,720`).
-
 https://github.com/ahlearn/calc-transformer-pytorch
 
-## State-of-the-Art (SOTA) Improvements
+A minimal character-level Transformer using PyTorch to perform addition and subtraction with **100.00% accuracy** on up to 3-digit numbers.
 
-To reach 100% accuracy with such a small parameter count, this repository incorporates several cutting-edge architectural and training optimizations:
+## Architectural and Training Optimizations
+
+To reach 100% accuracy with a small parameter count, this repository incorporates several architectural and training optimizations:
 
 ### 1. Modern LLaMA-Style Architecture
 The standard `nn.TransformerEncoderLayer` has been fully replaced with a custom-built layer sequence mirroring the LLaMA architecture:

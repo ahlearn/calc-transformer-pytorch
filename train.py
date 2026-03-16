@@ -32,8 +32,12 @@ def train():
     print(f"Model parameters: {sum(p.numel() for p in model.parameters() if p.requires_grad)}")
 
     # Optimizer & Loss
-    optimizer = torch.optim.AdamW(model.parameters(), lr=config.lr, weight_decay=1e-2)
-    scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=config.max_steps, eta_min=1e-5)
+    optimizer = torch.optim.AdamW(model.parameters(), lr=config.lr, weight_decay=1e-3)
+    scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
+        optimizer, 
+        T_max=config.max_steps, 
+        eta_min=1e-4
+    )
     criterion = nn.CrossEntropyLoss(ignore_index=VOCAB.index('<pad>'))
 
     # Logging
@@ -58,10 +62,11 @@ def train():
             if len(eq_idx) > 0:
                 y[i, :eq_idx[0]] = VOCAB.index('<pad>')
                 
+        # Calculate loss
         loss = criterion(logits.view(-1, len(VOCAB)), y.view(-1))
         
         loss.backward()
-        torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
+        torch.nn.utils.clip_grad_norm_(model.parameters(), 0.5)
         optimizer.step()
         scheduler.step()
 
