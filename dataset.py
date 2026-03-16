@@ -56,7 +56,7 @@ class CalculatorDataset(IterableDataset):
             elif ops[i] == '-':
                 total -= val
                 
-        formula_str += "=" + str(total)
+        formula_str += "=" + str(total)[::-1]
         return formula_str
         
     def __iter__(self):

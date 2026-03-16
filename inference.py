@@ -88,4 +88,13 @@ if __name__ == '__main__':
         
     print(f"\nEvaluating: {formula}")
     result = generate(model, formula, device, max_len=64, debug=args.debug)
-    print(f"\nFinal Result: {result}")
+    
+    if "=" in result:
+        prefix, answer = result.split("=", 1)
+        answer = answer.replace("<pad>", "")
+        final_answer = answer[::-1]
+        display_result = f"{prefix}={final_answer}"
+    else:
+        display_result = result
+        
+    print(f"\nFinal Result: {display_result} (Raw model output: {result})")

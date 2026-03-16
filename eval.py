@@ -29,9 +29,9 @@ def eval_model(model, device, num_samples=1000):
         
         prompt = f"{a}{op}{b}="
         if op == '+':
-            expected_answer = str(a + b)
+            expected_answer = str(a + b)[::-1]
         else:
-            expected_answer = str(a - b)
+            expected_answer = str(a - b)[::-1]
             
         # Default generation gives us the full sequence e.g., "123+456=579"
         output = generate(model, prompt, device, max_len=32, debug=False)
