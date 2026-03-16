@@ -1,6 +1,6 @@
 # Calculator Transformer (PyTorch)
 
-A minimal character-level Transformer using PyTorch to perform addition and subtraction with **100.00% accuracy** on up to 3-digit numbers. The model achieves perfect accuracy while containing fewer than 300,000 parameters (specifically `263,616`).
+A minimal character-level Transformer using PyTorch to perform addition and subtraction with **100.00% accuracy** on up to 3-digit numbers. The model achieves perfect accuracy while containing less than 100,000 parameters (specifically `82,720`).
 
 https://github.com/ahlearn/calc-transformer-pytorch
 
